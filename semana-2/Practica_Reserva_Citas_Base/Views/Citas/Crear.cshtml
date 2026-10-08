@@ -1,0 +1,26 @@
+@model Cita
+
+@{
+    ViewData["Title"] = "Reservar cita";
+}
+
+<section class="card">
+    <h2>Reservar una cita</h2>
+    <p>Complete el formulario aplicando los conceptos vistos en clase.</p>
+
+    <form asp-action="Crear" method="post">
+        <div asp-validation-summary="ModelOnly" class="validation-summary"></div>
+
+        @* TODO: Crear los controles Razor para:
+           - NombreCliente
+           - Correo
+           - FechaHora
+           - TipoServicio (select: Consulta, Soporte, Asesoria)
+           - Motivo
+
+           Cada campo debe utilizar asp-for y asp-validation-for.
+           NO agregar campos para Id ni Estado. *@
+
+        <button type="submit">Reservar cita</button>
+    </form>
+</section>

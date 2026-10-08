@@ -1,0 +1,24 @@
+@baseUrl = http://localhost:5050
+
+### Consultar el estado actual
+GET {{baseUrl}}/api/pedidos/42
+
+### Cambiar estado: todas las pestañas conectadas recibirán el evento
+POST {{baseUrl}}/api/pedidos/42/estado
+Content-Type: application/json
+
+{"estado":"En camino"}
+
+### Validación: espera HTTP 400
+POST {{baseUrl}}/api/pedidos/42/estado
+Content-Type: application/json
+
+{"estado":"No existe"}
+
+### Flujo SSE: la solicitud permanece abierta (cancelarla manualmente)
+GET {{baseUrl}}/eventos
+Accept: text/event-stream
+
+### Reloj periódico
+GET {{baseUrl}}/eventos/reloj
+Accept: text/event-stream

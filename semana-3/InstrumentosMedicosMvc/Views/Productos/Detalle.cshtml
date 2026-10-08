@@ -1,0 +1,10 @@
+@model Producto
+@{
+    ViewData["Title"] = Model.Nombre;
+}
+<a asp-action="Index">← Volver al catálogo</a>
+<h1>@Model.Nombre</h1>
+<p>@Model.Descripcion</p>
+<p>Categoría: @Model.Categoria</p>
+<p>Precio: $@Model.Precio.ToString("N2")</p>
+<partial name="_Disponibilidad" model="Model.Existencias" />

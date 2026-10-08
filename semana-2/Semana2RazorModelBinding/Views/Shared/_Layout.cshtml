@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Razor y Model Binding</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" asp-controller="Productos" asp-action="Index">Semana 2</a>
+            <nav>
+                <a asp-controller="Productos" asp-action="Index">Productos</a>
+                <a asp-controller="Productos" asp-action="Create">Crear producto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        @RenderBody()
+    </main>
+</body>
+</html>

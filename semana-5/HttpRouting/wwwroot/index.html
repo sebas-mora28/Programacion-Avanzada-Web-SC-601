@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laboratorio HTTP · Semana 5</title>
+  <link rel="stylesheet" href="/css/site.css">
+  <script src="/js/site.js" defer></script>
+</head>
+<body>
+<header><img src="/img/logo.svg" alt="SC 701" width="150" height="54"><span>Programación Avanzada Web · Semana 5</span></header>
+<main>
+  <p class="eyebrow">ASP.NET CORE · MINIMAL APIs</p>
+  <h1>Una solicitud, un resultado.</h1>
+  <p class="intro">Explore métodos HTTP, parámetros y rutas. Seleccione un ejemplo, modifique sus datos y observe la respuesta real del servidor.</p>
+  <div class="layout">
+    <section class="panel" aria-labelledby="ejemplos-titulo">
+      <h2 id="ejemplos-titulo">1. Elija un ejemplo</h2>
+      <label for="grupo">Tema</label><select id="grupo"></select>
+      <label for="ejemplo">Ejemplo</label><select id="ejemplo"></select>
+      <p id="explicacion"></p><p class="expected" id="esperado"></p>
+      <p class="source">Código: <code id="archivo"></code></p>
+    </section>
+    <section class="panel" aria-labelledby="solicitud-titulo">
+      <h2 id="solicitud-titulo">2. Envíe la solicitud</h2>
+      <div class="request-row"><div><label for="metodo">Método</label><select id="metodo"><option>GET</option><option>POST</option><option>PUT</option></select></div><div><label for="ruta">Ruta relativa</label><input id="ruta" spellcheck="false"></div></div>
+      <label for="headers">Encabezados adicionales en JSON</label><textarea id="headers" rows="2" spellcheck="false">{}</textarea>
+      <label for="cuerpo">Cuerpo JSON para POST o PUT</label><textarea id="cuerpo" rows="6" spellcheck="false"></textarea>
+      <button id="enviar" type="button">Enviar solicitud</button>
+    </section>
+  </div>
+  <section class="panel result" aria-labelledby="respuesta-titulo">
+    <div class="result-heading"><h2 id="respuesta-titulo">3. Observe la respuesta</h2><span id="estado" role="status" aria-live="polite">Sin solicitudes</span></div>
+    <p id="detalle">Los errores HTTP también son resultados útiles para esta práctica.</p>
+    <h3>Encabezados de respuesta</h3><pre id="respuesta-headers">—</pre>
+    <h3>Contenido</h3><pre id="respuesta">Seleccione un ejemplo y pulse Enviar solicitud.</pre>
+  </section>
+  <section class="panel"><h2>Archivos estáticos</h2><p>Esta página, sus estilos y su JavaScript se sirven desde <code>wwwroot</code>. Abra un recurso para comparar una respuesta estática con la de una API.</p><div class="links"><a href="/img/logo.svg" target="_blank" rel="noopener">Logo SVG</a><a href="/recursos/lectura.txt" target="_blank" rel="noopener">Lectura de texto</a><a href="/css/site.css" target="_blank" rel="noopener">Hoja de estilos</a></div></section>
+  <p class="footnote">El catálogo se guarda en memoria. Los registros nuevos desaparecen al reiniciar. Este laboratorio no incluye autenticación.</p>
+</main>
+</body></html>

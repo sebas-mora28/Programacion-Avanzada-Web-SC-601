@@ -1,0 +1,45 @@
+@model IReadOnlyList<Producto>
+@{
+    ViewData["Title"] = "Catálogo";
+}
+@functions {
+    // Función con retorno: solo da formato a información de presentación.
+    string FormatearPrecio(decimal precio) => $"${precio:N2}";
+}
+<h1>Catálogo de instrumentos médicos</h1>
+<p>Ejemplo de Razor con if, switch, for, foreach, función local y vista parcial.</p>
+
+@if (Model.Count == 0)
+{
+    <p>No hay productos para mostrar.</p>
+}
+else
+{
+    <p>Productos en el catálogo: @Model.Count</p>
+    <div class="grid">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        var producto = Model[i];
+        <article class="tarjeta">
+            <small>Producto #@(i + 1)</small>
+            <h2>@producto.Nombre</h2>
+            @switch (producto.Categoria)
+            {
+                case "Diagnóstico":
+                    <span class="categoria diagnostico">Diagnóstico</span>
+                    break;
+                case "Monitoreo":
+                    <span class="categoria monitoreo">Monitoreo</span>
+                    break;
+                default:
+                    <span class="categoria">@producto.Categoria</span>
+                    break;
+            }
+            <p>@producto.Descripcion</p>
+            <p>Precio: <strong>@FormatearPrecio(producto.Precio)</strong></p>
+            <partial name="_Disponibilidad" model="producto.Existencias" />
+            <p><a asp-controller="Productos" asp-action="Detalle" asp-route-id="@producto.Id">Ver detalle</a></p>
+        </article>
+    }
+    </div>
+}

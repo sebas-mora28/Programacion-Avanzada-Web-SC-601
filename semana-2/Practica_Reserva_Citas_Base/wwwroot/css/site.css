@@ -1,0 +1,62 @@
+:root {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1f2937;
+    background: #f4f6f8;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #dfe3e8;
+    margin-bottom: 2rem;
+}
+
+.container {
+    width: min(900px, 92%);
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.subtitle {
+    margin-top: -0.75rem;
+    color: #5b6470;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #dfe3e8;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+form div.field {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+}
+
+input,
+select,
+textarea {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 560px;
+    padding: 0.65rem;
+}
+
+button {
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+}
+
+.field-validation-error,
+.validation-summary-errors {
+    color: #b42318;
+}

@@ -1,0 +1,58 @@
+@model Producto
+
+@{
+    ViewData["Title"] = "Crear producto";
+}
+
+<div class="page-heading">
+    <div>
+        <span class="eyebrow">Model Binding + Validación</span>
+        <h1>Crear producto</h1>
+        <p>
+            Al enviar este formulario, ASP.NET Core construye automáticamente
+            un objeto <code>Producto</code> a partir de los datos HTTP.
+        </p>
+    </div>
+</div>
+
+<div class="grid">
+    <section class="card">
+        <h2>Formulario</h2>
+
+
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="validation"></div>
+
+            <div class="field">
+                <label asp-for="Nombre"></label>
+                <input asp-for="Nombre" />
+                <span asp-validation-for="Nombre" class="validation"></span>
+            </div>
+
+            <div class="field">
+                <label asp-for="Precio"></label>
+                <input asp-for="Precio" />
+                <span asp-validation-for="Precio" class="validation"></span>
+                <small>La validación personalizada permite valores entre 1 y 5000.</small>
+            </div>
+
+            <button class="button" type="submit">Crear</button>
+        </form>
+    </section>
+
+    <aside class="card explanation">
+        <h2>Qué ocurre al enviar</h2>
+        <ol>
+            <li>El navegador envía <code>Nombre</code> y <code>Precio</code>.</li>
+            <li><strong>Model Binding</strong> crea un objeto <code>Producto</code>.</li>
+            <li>Se ejecutan <code>[Required]</code>, <code>[StringLength]</code> y <code>[PrecioPermitido]</code>.</li>
+            <li><code>ModelState.IsValid</code> indica si los datos son válidos.</li>
+            <li>El servidor asigna <code>Id</code> y <code>FechaCreacion</code>.</li>
+        </ol>
+
+        <p>
+            El método POST usa <code>[Bind("Nombre,Precio")]</code>, mientras que
+            <code>Id</code> y <code>FechaCreacion</code> tienen <code>[BindNever]</code>.
+        </p>
+    </aside>
+</div>

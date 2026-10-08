@@ -1,0 +1,47 @@
+@model IEnumerable<Producto>
+
+@{
+    ViewData["Title"] = "Productos";
+}
+
+<div class="page-heading">
+    <div>
+        <span class="eyebrow">Razor</span>
+        <h1>Lista de productos</h1>
+        <p>
+            Esta vista usa <code>@@model IEnumerable&lt;Producto&gt;</code> y Razor
+            para recorrer objetos C# y generar HTML dinámicamente.
+        </p>
+    </div>
+    <a class="button" asp-action="Create">Nuevo producto</a>
+</div>
+
+<div class="concept-box">
+    <strong>Concepto:</strong>
+    Razor combina HTML con expresiones C#. El bloque <code>@@foreach</code>
+    de abajo crea una fila por cada producto.
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var producto in Model)
+    {
+        <tr>
+            <td>@producto.Id</td>
+            <td>@producto.Nombre</td>
+            <td>₡@producto.Precio.ToString("N2")</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@producto.Id">Ver detalle</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

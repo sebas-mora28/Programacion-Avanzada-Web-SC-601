@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Server-Sent Events · Demo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+<main>
+  <header><p class="eyebrow">PROGRAMACIÓN WEB / .NET 10</p><h1>Un pedido. Todas las pantallas al día.</h1>
+  <p>Abre esta página en dos pestañas. Cambia el estado en una y observa cómo la otra recibe el evento sin recargar.</p></header>
+  <section aria-labelledby="pedido-titulo">
+    <div class="section-heading"><h2 id="pedido-titulo">Pedido #42</h2><span id="conexion" role="status">Conectando…</span></div>
+    <p id="estado" class="estado" aria-live="polite">Esperando al servidor…</p>
+    <p id="detalle" class="muted">El estado llegará por SSE.</p>
+    <div class="controls"><button id="conectar" disabled>Conectar SSE</button><button id="desconectar" class="secondary">Desconectar SSE</button></div>
+  </section>
+  <section aria-labelledby="acciones-titulo"><h2 id="acciones-titulo">Cambiar el estado</h2>
+    <p>Esta acción envía un POST. La tarjeta de arriba solo cambia al recibir un evento SSE.</p>
+    <form id="formulario"><label for="nuevoEstado">Nuevo estado</label><div class="controls"><select id="nuevoEstado"><option>Recibido</option><option>En preparación</option><option>En camino</option><option>Entregado</option></select><button id="enviar" type="submit">Enviar cambio</button></div></form>
+    <p id="resultado" role="status"></p>
+  </section>
+  <section aria-labelledby="reloj-titulo"><h2 id="reloj-titulo">Ejemplo mínimo: reloj del servidor</h2><p>Un flujo independiente produce un evento cada 3 segundos.</p>
+    <div class="controls"><button id="relojBoton" class="secondary">Iniciar reloj</button><output id="reloj">Detenido</output></div>
+  </section>
+  <section><div class="section-heading"><h2>Registro de eventos</h2><button id="limpiar" class="secondary">Limpiar</button></div><pre id="registro" aria-label="Registro de eventos recibidos">Sin eventos.</pre></section>
+  <footer>Demo local, sin base de datos. Al reconectar se recibe el estado actual del pedido.</footer>
+</main>
+</body>
+</html>

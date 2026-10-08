@@ -1,0 +1,48 @@
+@model Producto
+
+@{
+    ViewData["Title"] = "Detalle del producto";
+}
+
+<div class="page-heading">
+    <div>
+        <span class="eyebrow">Vista Razor fuertemente tipada</span>
+        <h1>Detalles del producto</h1>
+        <p>
+            Esta vista declara <code>@@model Producto</code> y accede al objeto
+            mediante <code>@@Model</code>.
+        </p>
+    </div>
+</div>
+
+<section class="card product-details">
+    <div>
+        <span></span>
+        <span>Id</span>
+        <strong>@Model.Id</strong>
+    </div>
+    <div>
+        <span>Nombre</span>
+        <strong>@Model.Nombre</strong>
+        <strong>@Model.
+    </div>
+    <div>
+        <span>Precio</span>
+        <strong>₡@Model.Precio.ToString("N2")</strong>
+    </div>
+    <div>
+        <span>Fecha de creación</span>
+        <strong>@Model.FechaCreacion.ToString("dd/MM/yyyy HH:mm:ss")</strong>
+    </div>
+</section>
+
+<div class="concept-box">
+    <strong>Observe:</strong>
+    aunque el usuario solo envió Nombre y Precio, el controlador asignó Id y
+    FechaCreacion en el servidor. Esto permite visualizar claramente el papel
+    de <code>Bind</code> y <code>BindNever</code>.
+</div>
+
+<p>
+    <a asp-action="Index">← Volver a la lista</a>
+</p>

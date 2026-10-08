@@ -1,0 +1,5 @@
+{
+  "origen": "Archivo estático en wwwroot/datos/ejemplo.json",
+  "mensaje": "Este contenido cambia cuando editas el archivo.",
+  "curso": "Programación Avanzada en Web"
+}

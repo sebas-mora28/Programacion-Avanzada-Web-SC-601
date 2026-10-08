@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Root · Laboratorio de cine</title>
+  <link rel="stylesheet" href="/css/site.css">
+  <script src="/js/site.js" defer></script>
+</head>
+<body>
+  <main>
+    <header><img src="/images/cine.svg" alt="" width="64" height="64"><div><p class="eyebrow">ASP.NET CORE · LABORATORIO 01</p><h1>Del archivo al navegador</h1></div></header>
+    <p class="intro">Esta página combina archivos estáticos de <code>wwwroot</code> con datos de una Minimal API.</p>
+    <section aria-labelledby="recursos"><h2 id="recursos">1. Explora los archivos estáticos</h2>
+      <div class="links"><a href="/css/site.css">CSS</a><a href="/js/site.js">JavaScript</a><a href="/images/cine.svg">Imagen SVG</a><a href="/datos/ejemplo.json">JSON estático</a><a href="/ayuda.html">HTML de ayuda</a></div>
+      <p>Observa que las direcciones no incluyen <code>wwwroot</code>.</p>
+    </section>
+    <section aria-labelledby="cartelera"><h2 id="cartelera">2. Consulta la cartelera</h2>
+      <form id="filtros"><label for="genero">Género</label><select id="genero" name="genero"><option value="">Todos</option><option>Comedia</option><option>Drama</option><option>Ciencia ficción</option></select><button type="submit">Consultar API</button></form>
+      <p id="estado" role="status" aria-live="polite">Pulsa Consultar API para cargar los datos.</p><div id="peliculas" class="grid"></div>
+      <p class="hint">Solicitud: <code id="solicitud">/api/peliculas</code></p>
+    </section>
+    <section aria-labelledby="hora-titulo"><h2 id="hora-titulo">3. Compara contenido estático y dinámico</h2><p>El JSON estático conserva el contenido del archivo. La API genera la hora UTC al recibir cada solicitud.</p><button id="ver-hora" type="button">Consultar hora del servidor</button><p id="hora" role="status">Todavía no se ha consultado.</p></section>
+    <footer>Abre las herramientas del navegador → Network. Recarga y observa cada solicitud.</footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+:root { font-family:system-ui,sans-serif; color:#173048; background:#f2f5f7; color-scheme:light; }
+* { box-sizing:border-box; }
+body { margin:0; } main { max-width:1000px; padding:48px 24px; margin:auto; }
+header { margin-bottom:40px; } .eyebrow { color:#087f8c; font-size:12px; font-weight:750; letter-spacing:2px; }
+h1 { font-size:clamp(32px,5vw,52px); line-height:1.1; max-width:750px; letter-spacing:-1.5px; }
+h2 { font-size:22px; } p { line-height:1.6; } section { background:white; padding:28px; border:1px solid #dce5eb; border-radius:12px; margin:20px 0; }
+.section-heading { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }.section-heading h2 { margin:0; }
+#conexion { color:#087f8c; font-weight:650; }.estado { font-size:38px; font-weight:750; margin:20px 0 6px; }.muted,footer { color:#5e7180; }
+.controls { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top:14px; } button,select { font:inherit; border-radius:7px; padding:12px 18px; }
+button { background:#087f8c; color:white; border:1px solid #087f8c; cursor:pointer; }button.secondary { background:white; color:#173048; border-color:#bfced8; }button:disabled { opacity:.45; cursor:default; }
+button:focus-visible,select:focus-visible { outline:3px solid #e9a838; outline-offset:3px; }select { border:1px solid #bfced8; background:white; }pre { background:#0b192c; color:#c6eeec; border-radius:6px; padding:20px; white-space:pre-wrap; overflow-wrap:anywhere; max-height:340px; overflow:auto; line-height:1.5; }footer { font-size:14px; }

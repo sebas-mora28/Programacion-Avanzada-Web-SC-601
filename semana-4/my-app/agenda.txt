@@ -1,0 +1,7 @@
+Actividad git
+<<<<<<< HEAD
+Horario: Miercoles 11:00pm
+=======
+Horario: Miercoles 10:00pm
+>>>>>>> a9370398f2117e4840939c341449bf3af14d22bb
+Lugar: Universidad Fidelitas

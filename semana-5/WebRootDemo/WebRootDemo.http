@@ -1,0 +1,31 @@
+@baseUrl = http://localhost:5050
+
+### Página de inicio (UseDefaultFiles + UseStaticFiles)
+GET {{baseUrl}}/
+
+### CSS estático
+GET {{baseUrl}}/css/site.css
+
+### JSON estático
+GET {{baseUrl}}/datos/ejemplo.json
+
+### API con filtro
+GET {{baseUrl}}/api/peliculas?genero=Comedia
+
+### Parámetro de ruta
+GET {{baseUrl}}/api/peliculas/1
+
+### Recurso inexistente: 404
+GET {{baseUrl}}/api/peliculas/999
+
+### No cumple restricción int: 404
+GET {{baseUrl}}/api/peliculas/abc
+
+### Hora dinámica
+GET {{baseUrl}}/api/hora
+
+### Fuera de wwwroot: 404
+GET {{baseUrl}}/DatosInternos/nota.txt
+
+### wwwroot no forma parte de la URL: 404
+GET {{baseUrl}}/wwwroot/css/site.css

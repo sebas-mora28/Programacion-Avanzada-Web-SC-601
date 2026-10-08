@@ -1,0 +1,3 @@
+Este archivo está en wwwroot/recursos/lectura.txt.
+Su URL pública es /recursos/lectura.txt, sin el prefijo wwwroot.
+Los archivos publicados aquí no deben contener secretos ni datos privados.

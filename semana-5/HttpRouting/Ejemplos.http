@@ -1,0 +1,152 @@
+@baseUrl = http://localhost:5000
+
+### MapGet - Texto plano | 200 OK
+GET {{baseUrl}}/api/get/saludo
+
+### MapGet - Objeto JSON | 200 OK
+GET {{baseUrl}}/api/get/curso
+
+### MapGet - Idempotencia y hora | 200 OK
+GET {{baseUrl}}/api/get/hora
+
+### MapGet - Sin contenido | 204 No Content
+GET {{baseUrl}}/api/get/sin-contenido
+
+### MapPost - Eco de un mensaje | 200 OK
+POST {{baseUrl}}/api/post/eco
+Content-Type: application/json
+
+{
+  "mensaje": "Hola, clase"
+}
+
+### MapPost - Mensaje vacío | 400 Bad Request
+POST {{baseUrl}}/api/post/eco
+Content-Type: application/json
+
+{
+  "mensaje": "  "
+}
+
+### MapPost - Calcular cotización | 200 OK
+POST {{baseUrl}}/api/post/cotizacion
+Content-Type: application/json
+
+{
+  "precio": 10000000,
+  "porcentajeDescuento": 10
+}
+
+### MapPost - Descuento fuera de rango | 400 Bad Request
+POST {{baseUrl}}/api/post/cotizacion
+Content-Type: application/json
+
+{
+  "precio": 10000000,
+  "porcentajeDescuento": 120
+}
+
+### Parámetros - Valor en la ruta | 200 OK
+GET {{baseUrl}}/api/clientes/42
+
+### Parámetros - Consulta y valores opcionales | 200 OK
+GET {{baseUrl}}/api/vehiculos?marca=Toyota&pagina=2
+
+### Parámetros - Conversión fallida | 400 Bad Request
+GET {{baseUrl}}/api/vehiculos?pagina=abc
+
+### Parámetros - Encabezado personalizado | 200 OK
+GET {{baseUrl}}/api/inventario
+X-Sucursal: Centro
+
+### Parámetros - Ruta opcional | 200 OK
+GET {{baseUrl}}/api/sucursales
+
+### Parámetros - Ruta y consulta juntas | 200 OK
+GET {{baseUrl}}/api/vehiculos/8?moneda=USD
+
+### Restricciones - Entero válido | 200 OK
+GET {{baseUrl}}/api/restricciones/entero/12
+
+### Restricciones - Entero inválido | 404 Not Found
+GET {{baseUrl}}/api/restricciones/entero/abc
+
+### Restricciones - Binding sin restricción | 400 Bad Request
+GET {{baseUrl}}/api/restricciones/binding/abc
+
+### Restricciones - Mínimo como restricción | 404 Not Found
+GET {{baseUrl}}/api/restricciones/positivo/0
+
+### Restricciones - Mínimo como validación | 400 Bad Request
+GET {{baseUrl}}/api/restricciones/validacion/0
+
+### Restricciones - Identificador Guid | 200 OK
+GET {{baseUrl}}/api/restricciones/guid/550e8400-e29b-41d4-a716-446655440000
+
+### Restricciones - Longitud exacta | 200 OK
+GET {{baseUrl}}/api/restricciones/codigo/ABC123
+
+### Restricciones - Desambiguar por entero | 200 OK
+GET {{baseUrl}}/api/restricciones/identificador/25
+
+### Restricciones - Desambiguar por Guid | 200 OK
+GET {{baseUrl}}/api/restricciones/identificador/550e8400-e29b-41d4-a716-446655440000
+
+### Restricciones - Precedencia de un literal | 200 OK
+GET {{baseUrl}}/api/restricciones/catalogo/destacados
+
+### Autos el campeón - Listar autos | 200 OK
+GET {{baseUrl}}/api/autos
+
+### Autos el campeón - Filtrar catálogo | 200 OK
+GET {{baseUrl}}/api/autos?marca=Toyota&precioMaximo=10000000
+
+### Autos el campeón - Consultar por id | 200 OK
+GET {{baseUrl}}/api/autos/1
+
+### Autos el campeón - Recurso inexistente | 404 Not Found
+GET {{baseUrl}}/api/autos/99999
+
+### Autos el campeón - Crear auto | 201 Created
+POST {{baseUrl}}/api/autos
+Content-Type: application/json
+
+{
+  "marca": "Kia",
+  "modelo": "Rio",
+  "precio": 8000000
+}
+
+### Autos el campeón - Validación de entrada | 400 Bad Request
+POST {{baseUrl}}/api/autos
+Content-Type: application/json
+
+{
+  "marca": "",
+  "modelo": "Rio",
+  "precio": -1
+}
+
+### Autos el campeón - Método no permitido | 405 Method Not Allowed
+PUT {{baseUrl}}/api/autos
+Content-Type: application/json
+
+{}
+
+### Archivos estáticos - Archivo de texto | 200 OK
+GET {{baseUrl}}/recursos/lectura.txt
+
+### Archivos estáticos - Prefijo incorrecto | 404 Not Found
+GET {{baseUrl}}/wwwroot/recursos/lectura.txt
+
+### JSON mal formado: 400
+POST {{baseUrl}}/api/post/eco
+Content-Type: application/json
+
+{"mensaje":
+
+### Tipo de contenido incorrecto: 415
+POST {{baseUrl}}/api/post/eco
+Content-Type: text/plain
+
+Hola
