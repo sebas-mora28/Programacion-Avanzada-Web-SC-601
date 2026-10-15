@@ -1,0 +1,86 @@
+@host = http://localhost:5080
+
+### Crear una categoría
+POST {{host}}/api/categorias
+Content-Type: application/json
+
+{
+  "nombre": "Universidad"
+}
+
+### Crear un usuario responsable
+POST {{host}}/api/usuarios
+Content-Type: application/json
+
+{
+  "nombre": "Ana Rodríguez",
+  "email": "ana@example.com"
+}
+
+### Consultar categorías
+GET {{host}}/api/categorias
+
+### Consultar usuarios
+GET {{host}}/api/usuarios
+
+### Consultar todas
+GET {{host}}/api/tareas
+
+### Crear una tarea
+POST {{host}}/api/tareas
+Content-Type: application/json
+
+{
+  "titulo": "Preparar la clase de EF Core",
+  "descripcion": "Repasar DbContext, migraciones y PostgreSQL",
+  "completada": false,
+  "prioridad": "Alta",
+  "categoriaId": 1,
+  "responsableId": 1
+}
+
+### Consultar por ID (cambiar si fuera necesario)
+GET {{host}}/api/tareas/1
+
+### Actualizar tarea
+PUT {{host}}/api/tareas/1
+Content-Type: application/json
+
+{
+  "titulo": "Preparar la clase de EF Core",
+  "descripcion": "Ejemplos revisados",
+  "completada": true,
+  "prioridad": "Media",
+  "categoriaId": 1,
+  "responsableId": null
+}
+
+### Consultar tareas con INNER JOIN y LEFT JOIN
+GET {{host}}/api/tareas/detalle
+
+### Resumen agrupado por categoría
+GET {{host}}/api/tareas/resumen-por-categoria
+
+### Reasignar con EF Core, CommitAsync y RollbackAsync
+POST {{host}}/api/tareas/reasignar-con-transaccion
+Content-Type: application/json
+
+{
+  "usuarioOrigenId": 1,
+  "usuarioDestinoId": 2
+}
+
+### Reasignar llamando únicamente al procedimiento almacenado
+POST {{host}}/api/tareas/reasignar-con-procedimiento
+Content-Type: application/json
+
+{
+  "usuarioOrigenId": 1,
+  "usuarioDestinoId": 2
+}
+
+### Consultar mediante función de PostgreSQL
+GET {{host}}/api/tareas/por-estado?completada=true
+
+### Eliminar tarea
+DELETE {{host}}/api/tareas/1
