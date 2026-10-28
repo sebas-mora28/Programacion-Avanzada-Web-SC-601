@@ -1,0 +1,11 @@
+@{ ViewData["Title"] = "Dashboard"; }
+<section class="card">
+    <p class="hint">ÁREA PRIVADA</p>
+    <h1>Bienvenido, @User.Identity?.Name</h1>
+    <dl>
+        <dt>Identificador</dt><dd>@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value</dd>
+        <dt>Rol</dt><dd>@User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value</dd>
+    </dl>
+    <p>Su identidad proviene de la cookie de autenticación validada por el servidor.</p>
+    <form method="post" asp-controller="Account" asp-action="Logout"><button type="submit">Cerrar sesión</button></form>
+</section>

@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="src/BasicApp/BasicApp.csproj" />
+  <Project Path="src/TareasHTTP/TareasHTTP.csproj" />
+   <Project Path="src/ErroresHTTP/ErroresHTTP.csproj" />
+</Solution>

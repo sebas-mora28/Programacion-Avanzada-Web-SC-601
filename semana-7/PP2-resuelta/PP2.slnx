@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="src/BasicApp/BasicApp.csproj" />
+  <Project Path="src/CookiesApp/CookiesApp.csproj" />
+  <Project Path="src/JwtApp/JwtApp.csproj" />
+</Solution>

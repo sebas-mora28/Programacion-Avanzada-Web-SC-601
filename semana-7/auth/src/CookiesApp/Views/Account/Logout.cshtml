@@ -1,0 +1,6 @@
+@{ ViewData["Title"] = "Cerrar sesión"; }
+<section class="card">
+<h1>Cerrar sesión</h1>
+<div asp-validation-summary="All" class="error"></div>
+<form method="post" asp-controller="Account" asp-action="Logout"><button type="submit">Confirmar cierre de sesión</button></form>
+</section>

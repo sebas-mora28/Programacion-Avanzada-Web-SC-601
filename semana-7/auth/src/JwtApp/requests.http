@@ -1,0 +1,41 @@
+@baseUrl = https://localhost:7103
+# Copiar aquí accessToken de la respuesta de emisión. Nunca copiar las comillas.
+@token = REEMPLAZAR_CON_TOKEN
+
+### Credenciales válidas -> 200: accessToken, tokenType, expiresIn
+POST {{baseUrl}}/api/auth/token
+Content-Type: application/json
+
+{"username":"admin","password":"Admin123!"}
+
+### Segundo usuario -> 200
+POST {{baseUrl}}/api/auth/token
+Content-Type: application/json
+
+{"username":"estudiante","password":"User123!"}
+
+### Credenciales inválidas -> 401
+POST {{baseUrl}}/api/auth/token
+Content-Type: application/json
+
+{"username":"admin","password":"incorrecta"}
+
+### Datos incompletos -> 400
+POST {{baseUrl}}/api/auth/token
+Content-Type: application/json
+
+{"username":"admin"}
+
+### Token válido -> 200; repetir DESPUÉS de expirar -> 401
+GET {{baseUrl}}/api/jwt/profile
+Authorization: Bearer {{token}}
+
+### Sin token -> 401
+GET {{baseUrl}}/api/jwt/profile
+
+### Token inválido -> 401
+GET {{baseUrl}}/api/jwt/profile
+Authorization: Bearer esto-no-es-un-jwt
+
+### Para firma alterada: cambiar un carácter en el PAYLOAD del token, conservar firma.
+# Repetir la solicitud de perfil con ese token -> 401.

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "RazorPagesApp/1.0.0": {
+        "runtime": {
+          "RazorPagesApp.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RazorPagesApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

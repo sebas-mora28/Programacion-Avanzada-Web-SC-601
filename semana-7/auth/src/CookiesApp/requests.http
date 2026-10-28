@@ -1,0 +1,12 @@
+@baseUrl = https://localhost:7102
+
+### Login público -> 200
+GET {{baseUrl}}/Login
+
+### Sin cookie -> 302 hacia /Login al completar C1/C3
+# Desactivar seguimiento automático de redirecciones para observar el 302.
+GET {{baseUrl}}/Dashboard
+
+### Prueba de login/logout: usar navegador (ver README).
+# Los POST de MVC requieren token antiforgery y su cookie asociados.
+# No deshabilitar antiforgery para enviar formularios desde este archivo.

@@ -1,0 +1,31 @@
+@baseUrl = http://localhost:5081
+
+### Consultar catálogo
+GET {{baseUrl}}/products
+
+### Consultar producto existente
+GET {{baseUrl}}/products/1
+
+### Consultar producto inexistente
+GET {{baseUrl}}/products/999
+
+### Crear producto (implementación inicial)
+GET {{baseUrl}}/products/create?name=Webcam&price=65
+
+### Crear producto con datos inválidos (implementación inicial)
+GET {{baseUrl}}/products/create?name=&price=-10
+
+### Actualizar producto (ejecutar dos veces y observar el precio)
+POST {{baseUrl}}/products/1/update
+Content-Type: application/json
+
+{
+  "name": "Mechanical Keyboard",
+  "price": 10
+}
+
+### Eliminar producto
+GET {{baseUrl}}/products/2/delete
+
+### Confirmar resultado de la eliminación
+GET {{baseUrl}}/products/2

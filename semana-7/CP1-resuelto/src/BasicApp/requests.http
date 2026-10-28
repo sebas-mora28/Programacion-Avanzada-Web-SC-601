@@ -1,0 +1,44 @@
+@baseUrl = http://localhost:5000
+
+# Credenciales del UserService proporcionado; uso local de la práctica.
+
+### Endpoint público: disponible desde la base -> 200
+GET {{baseUrl}}/
+
+### B: sin credenciales -> 401 + WWW-Authenticate
+GET {{baseUrl}}/api/basic/profile
+
+### B: admin:passwordAdmin -> 200
+GET {{baseUrl}}/api/basic/profile
+Authorization: Basic YWRtaW46cGFzc3dvcmRBZG1pbg==
+
+### B: estudiante:password123 -> 200, rol User
+GET {{baseUrl}}/api/basic/profile
+Authorization: Basic ZXN0dWRpYW50ZTpwYXNzd29yZDEyMw==
+
+### B: contraseña incorrecta -> 401
+GET {{baseUrl}}/api/basic/profile
+Authorization: Basic YWRtaW46bWFs
+
+### B: Base64 mal formado -> 401, nunca 500
+GET {{baseUrl}}/api/basic/profile
+Authorization: Basic !!!
+
+### B: esquema incorrecto -> 401
+GET {{baseUrl}}/api/basic/profile
+Authorization: Bearer token-invalido
+
+### Admin: sin credenciales -> 401 + WWW-Authenticate
+GET {{baseUrl}}/api/basic/admin
+
+### Admin: admin:passwordAdmin -> 200
+GET {{baseUrl}}/api/basic/admin
+Authorization: Basic YWRtaW46cGFzc3dvcmRBZG1pbg==
+
+### Admin: estudiante:password123 -> 403 (autenticado, sin permiso)
+GET {{baseUrl}}/api/basic/admin
+Authorization: Basic ZXN0dWRpYW50ZTpwYXNzd29yZDEyMw==
+
+### Admin: contraseña incorrecta -> 401 + WWW-Authenticate
+GET {{baseUrl}}/api/basic/admin
+Authorization: Basic YWRtaW46bWFs

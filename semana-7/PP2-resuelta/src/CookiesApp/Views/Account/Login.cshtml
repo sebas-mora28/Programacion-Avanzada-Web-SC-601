@@ -1,0 +1,17 @@
+@model LoginViewModel
+@{ ViewData["Title"] = "Iniciar sesión"; }
+<section class="card">
+    <p class="hint">APLICACIÓN 02 / COOKIES</p>
+    <h1>Iniciar sesión</h1>
+    <p>Ingrese sus credenciales para acceder al Dashboard.</p>
+    <form method="post" asp-controller="Account" asp-action="Login">
+        <div asp-validation-summary="All" class="error" role="alert"></div>
+        <input type="hidden" asp-for="ReturnUrl" />
+        <label asp-for="Username">Usuario</label>
+        <input asp-for="Username" autocomplete="username" required />
+        <label asp-for="Password">Contraseña</label>
+        <input asp-for="Password" type="password" autocomplete="current-password" required />
+        <button type="submit">Ingresar</button>
+    </form>
+    <p class="hint">Ingrese sus credenciales para iniciar una sesión de 20 minutos.</p>
+</section>

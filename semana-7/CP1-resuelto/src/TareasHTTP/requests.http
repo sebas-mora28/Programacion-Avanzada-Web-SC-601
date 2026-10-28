@@ -1,0 +1,18 @@
+@baseUrl = http://localhost:5080
+
+### Verificar que el proyecto inicia
+GET {{baseUrl}}/
+
+### RF01: Crear tarea (debe responder 202 Accepted y Location)
+POST {{baseUrl}}/tasks
+Content-Type: application/json
+
+{
+  "seconds": 10
+}
+
+### RF02: Consultar tarea (reemplazar por un ID devuelto en RF01)
+GET {{baseUrl}}/tasks/00000000-0000-0000-0000-000000000000
+
+### RF02: ID que no existe (debe responder 404 Not Found)
+GET {{baseUrl}}/tasks/ffffffff-ffff-ffff-ffff-ffffffffffff
