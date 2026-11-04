@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="src/PruebasDemo.Api/PruebasDemo.Api.csproj" />
+  <Project Path="tests/PruebasDemo.Unitarias/PruebasDemo.Unitarias.csproj" />
+  <Project Path="tests/PruebasDemo.Integracion/PruebasDemo.Integracion.csproj" />
+</Solution>

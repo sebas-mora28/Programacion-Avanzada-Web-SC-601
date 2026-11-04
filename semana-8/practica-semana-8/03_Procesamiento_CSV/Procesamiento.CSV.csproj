@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Exe</OutputType></PropertyGroup><ItemGroup><PackageReference Include="CsvHelper" Version="33.0.1"/></ItemGroup><ItemGroup><None Update="products.csv" CopyToOutputDirectory="PreserveNewest"/></ItemGroup></Project>

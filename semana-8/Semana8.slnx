@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="BusquedaBenchmark/BusquedaBenchmark.csproj" />
+  <Project Path="PruebasDemo/src/PruebasDemo.Api/PruebasDemo.Api.csproj" />
+  <Project Path="PruebasDemo/tests/PruebasDemo.Unitarias/PruebasDemo.Unitarias.csproj" />
+  <Project Path="PruebasDemo/tests/PruebasDemo.Integracion/PruebasDemo.Integracion.csproj" />
+  <Project Path="DesayunoAsincrono/DesayunoAsincrono.csproj" />
+  <Project Path="Tradicional/Tradicional.csproj" />
+  <Project Path="FluentApi/FluentApi.csproj" />
+</Solution>

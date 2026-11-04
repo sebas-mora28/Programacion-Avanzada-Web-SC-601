@@ -1,0 +1,60 @@
+@baseUrl = http://localhost:5082
+@productoId = 1
+@categoriaId = 1
+
+### Consultar categorías y copiar un ID en categoriaId
+GET {{baseUrl}}/api/categorias
+
+### Listar productos
+GET {{baseUrl}}/api/productos
+
+### Crear producto; copiar el ID devuelto en productoId
+POST {{baseUrl}}/api/productos
+Content-Type: application/json
+
+{
+  "nombre": "Mouse",
+  "descripcion": "Mouse inalámbrico",
+  "precio": 8500,
+  "categoriaId": {{categoriaId}}
+}
+
+### Consultar el producto creado
+GET {{baseUrl}}/api/productos/{{productoId}}
+
+### Actualizar
+PUT {{baseUrl}}/api/productos/{{productoId}}
+Content-Type: application/json
+
+{
+  "nombre": "Mouse actualizado",
+  "descripcion": null,
+  "precio": 9000,
+  "categoriaId": {{categoriaId}}
+}
+
+### Validación HTTP: debe devolver 400
+POST {{baseUrl}}/api/productos
+Content-Type: application/json
+
+{
+  "nombre": "",
+  "precio": -1,
+  "categoriaId": {{categoriaId}}
+}
+
+### Categoría inexistente: debe devolver 400
+POST {{baseUrl}}/api/productos
+Content-Type: application/json
+
+{
+  "nombre": "Mouse",
+  "precio": 8500,
+  "categoriaId": 999999
+}
+
+### Comparar el SQL de ambos proyectos
+GET {{baseUrl}}/api/esquema
+
+### Eliminar el producto seleccionado
+DELETE {{baseUrl}}/api/productos/{{productoId}}

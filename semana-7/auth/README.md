@@ -95,6 +95,12 @@ El texto del ejemplo es un marcador, no una clave para usar. Puede generar 32 by
 ```
 Use el texto generado como valor UTF-8 de la llave en ambos lugares. `user-secrets init` agrega un identificador al csproj; la clave se guarda fuera del repositorio. También es posible usar la variable de entorno `Jwt__SigningKey`. Al completar J1/J3, valide que la clave esté configurada y tenga longitud suficiente. HS256 es el algoritmo requerido para acotar esta práctica.
 
+Para ver el header y el payload de un JWT sin instalar paquetes, use el script Node incluido:
+```sh
+node decode-jwt.js "PEGUE_AQUI_EL_TOKEN"
+```
+También puede enviar el token por stdin. El script solo decodifica los datos; no valida la firma ni confirma que el token sea auténtico.
+
 ## Pruebas
 1. Basic: ejecutar `src/BasicApp/requests.http`; comprobar códigos y WWW-Authenticate. En `/api/basic/admin`, verificar 200 con `admin`, 403 con `estudiante` y 401 sin credenciales o con contraseña incorrecta. Añadir credenciales sin separador y vacías. Un encabezado mal formado debe producir 401, nunca 500.
 2. Cookies: abrir una ventana privada en https://localhost:7102/Dashboard. Debe redirigir a Login. Intentar contraseña incorrecta y luego una válida; comprobar nombre/rol. Pulsar Cerrar sesión; solicitar de nuevo /Dashboard y verificar redirección. No basta con volver atrás y mirar una captura almacenada por el navegador.

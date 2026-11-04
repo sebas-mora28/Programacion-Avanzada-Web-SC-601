@@ -1,0 +1,25 @@
+@baseUrl = http://localhost:5084
+
+### 200: cinco teclados, subtotal 500, descuento 50 y total 450
+POST {{baseUrl}}/api/cotizaciones
+Content-Type: application/json
+
+{"productoId": 1, "cantidad": 5}
+
+### 200: cuatro teclados, sin descuento, total 400
+POST {{baseUrl}}/api/cotizaciones
+Content-Type: application/json
+
+{"productoId": 1, "cantidad": 4}
+
+### 400: AddValidation valida el DTO antes de ejecutar el handler de Minimal API
+POST {{baseUrl}}/api/cotizaciones
+Content-Type: application/json
+
+{"productoId": 1, "cantidad": 0}
+
+### 404: el producto no existe en el catálogo
+POST {{baseUrl}}/api/cotizaciones
+Content-Type: application/json
+
+{"productoId": 999, "cantidad": 1}
